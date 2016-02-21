@@ -24,10 +24,10 @@ The frontend is using:
 ### Development/Deployment
 The application is deployed on Google App Engine and uses the maven plugins and configuration provided by Google App Engine for local development and deployment.
 
-Run locally:
-```mvn appenging:devserver```
+Run locally:  
+```mvn appengine:devserver```
 
-Deploy:
-```mvn appenging:update```
+Deploy:  
+```mvn appengine:update```
 
 
