@@ -2,13 +2,17 @@ var Map;
 
 // Berlin
 var defaultLatLng = {lat : 52.5167, lng : 13.3833};
-var defaultZoom = 7;
+var defaultZoom = 5;
+
+var markersLayer;
 
 function init() {
     initMapbox();
     getChats();
 
     document.getElementById("refresh").addEventListener("click", getChats);
+    document.getElementById("loadAll").addEventListener("click", toggleLoadAll);
+
 }
 
 window.onload = init;
@@ -31,7 +35,12 @@ function addMarkers(markers) {
         Map.setView(defaultLatLng, defaultZoom);
         return;
     }
-    var markersLayer = L.mapbox.featureLayer().addTo(Map);
+
+    if (markersLayer != undefined) {
+        Map.removeLayer(markersLayer);
+    }
+
+    markersLayer = L.mapbox.featureLayer().addTo(Map);
 
     var geojson = [],
         latSum = 0,
@@ -84,7 +93,7 @@ function getChats() {
                 lng: chat.longitude,
                 lat: chat.latitude,
                 title: chat.type + ' (' + chat.created_at_date + ')',
-                description: 'Last message: "' + chat.description + '"' +
+                description: 'Last message: "' + chat.description + '"'
                 + '<br>Wait time: ' + chat.chat_waittime
                 + '<br>Duration: ' + chat.chat_duration
                 + '<br><a href="' + chat.url + '" target="_blank">More details</a>'
@@ -109,8 +118,22 @@ function getChats() {
         return false;
     }
 
+    var params = toLoadAll() ? '' : 'n=10';
+
     httpRequest.onreadystatechange = callback;
-    httpRequest.open('GET', '/api/chats');
+    httpRequest.open('GET', '/api/chats?' + params, true );
     httpRequest.send();
 }
 
+function toLoadAll() {
+    return getLoadAllCheckbox().checked;
+}
+
+function toggleLoadAll() {
+    var checkbox = getLoadAllCheckbox();
+    checkbox.checked = !checkbox.checked;
+}
+
+function getLoadAllCheckbox(){
+    return document.getElementById("loadAllCheckbox");
+}
