@@ -3,6 +3,7 @@ package org.inbarda.snapengage.api;
 import com.google.gson.Gson;
 import org.inbarda.snapengage.persistence.dao.ChatDao;
 import org.inbarda.snapengage.persistence.model.Chat;
+import org.inbarda.snapengage.services.ChatPersistenceService;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -23,19 +24,19 @@ public class WebhookServlet extends HttpServlet {
     Logger log = Logger.getLogger(WebhookServlet.class.getName());
 
     private final Gson gson;
-    private final ChatDao chatDao;
+    private final ChatPersistenceService chatService;
 
 
     @Inject
-    public WebhookServlet(Gson gson, ChatDao chatDao) {
+    public WebhookServlet(Gson gson, ChatPersistenceService chatService) {
         this.gson = gson;
-        this.chatDao = chatDao;
+        this.chatService = chatService;
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Chat chat = gson.fromJson(req.getReader(), Chat.class);
-        chatDao.save(chat);
+        chatService.saveChat(chat);
     }
 
 }
