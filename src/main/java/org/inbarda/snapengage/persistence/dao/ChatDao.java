@@ -4,9 +4,6 @@ import org.inbarda.snapengage.persistence.model.Chat;
 
 import java.util.List;
 
-/**
- * Created by Inbar on 20/02/2016.
- */
 public interface ChatDao {
     void save(Chat chat);
     Chat read(int id);

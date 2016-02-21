@@ -14,9 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-/**
- * Created by Inbar on 18/02/2016.
- */
 
 @Singleton
 public class WebhookServlet extends HttpServlet {
