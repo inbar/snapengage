@@ -18,7 +18,7 @@ The data persistence is a naive in memory implementation. So everything is gone 
 Vanilla Javascript based frontend to show the saved chat data on a map.
 The frontend is using:
 * [Mapbox](https://www.mapbox.com/) - a too powerful mapping tool.
-* Twitter Bootsrap
+* Twitter Bootstrap
 * As mentioned, vanilla javascript with a little bit of ajax.
 
 ### Development/Deployment
