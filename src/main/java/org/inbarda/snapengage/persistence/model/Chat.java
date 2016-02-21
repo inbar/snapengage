@@ -1,11 +1,10 @@
 package org.inbarda.snapengage.persistence.model;
 
+
 /**
- * Created by Inbar on 19/02/2016.
+ * A class representing the JSON data sent to the webhook.
  */
 public class Chat {
-
-    private int internalId = -1;
     private String id;
     private String widget_id;
     private String url;
@@ -33,6 +32,17 @@ public class Chat {
     private String language_code;
     private Transcript[] transcripts;
 
+
+    /**
+     * An id to be assigned and used internally.
+     */
+    private int internalId = -1;
+
+    /**
+     * Empty constructore to be used by the GSON json parser.
+     *
+     *  @see <a href="https://github.com/google/gson/blob/master/UserGuide.md#gson-user-guide">GSON user guide</a>
+     */
     public Chat() {
     }
 
