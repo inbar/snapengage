@@ -62,6 +62,10 @@ public class LocalChatDao implements ChatDao {
     @Override
     public List<Integer> getLastNIds(int n) {
         ArrayList<Integer> result = new ArrayList<>(db.keySet());
+
+        if (result.size() <= n) {
+            return result;
+        }
         Collections.sort(result, Collections.reverseOrder());
         return result.subList(0, n);
     }

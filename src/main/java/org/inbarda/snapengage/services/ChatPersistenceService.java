@@ -35,6 +35,14 @@ public class ChatPersistenceService {
         return this.chatDao.getIds();
     }
 
+    /**
+     * Reads the last (most recent) n chats.
+     * If the total number of chats is smaller than n, returns all available chats.
+     * The result is not sorted.
+     *
+     * @param n
+     * @return A list with at most n most recent chats
+     */
     public List<Chat> readLastN(int n) {
         List<Integer> ids = this.chatDao.getLastNIds(n);
         return this.readAll(ids);
