@@ -12,7 +12,7 @@ A Java backend using the following:
 * [Guice](https://github.com/google/guice) is used for dependency management and servlet configuration.
 * [GSON](https://github.com/google/gson) for (de)serializing json.
 
-The data persistence is a naive in memory implementation. So everything is gone on server restart. I think i could live with that.
+The data persistence is a naive in-memory implementation. So everything is gone on server restart. I think i could live with that.
 
 ### Frontend
 Vanilla Javascript based frontend to show the saved chat data on a map.
