@@ -15,7 +15,7 @@ A Java backend using the following:
 The data persistence is a naive in memory implementation. So everything is gone on server restart. I think i could live with that.
 
 ### Frontend
-Vanilla Javascriptbased frontend to show the saved chat data on a map.
+Vanilla Javascript based frontend to show the saved chat data on a map.
 The frontend is using:
 * [Mapbox](https://www.mapbox.com/) - a too powerful mapping tool.
 * Twitter Bootsrap
