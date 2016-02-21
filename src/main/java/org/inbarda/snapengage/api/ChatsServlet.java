@@ -19,8 +19,6 @@ import java.util.logging.Logger;
 @Singleton
 public class ChatsServlet extends HttpServlet {
 
-    Logger log = Logger.getLogger(WebhookServlet.class.getName());
-
     private enum GetParams {
         N("n");
 
