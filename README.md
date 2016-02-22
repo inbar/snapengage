@@ -1,5 +1,6 @@
-## SnapEngage webhook Task
-
+## SnapEngage webhook Task  
+  
+The widget is installed at: [http://inbar.github.io/snapengage/](http://inbar.github.io/snapengage/)  
 The app is available at: [https://snapengage-1225.appspot.com](https://snapengage-1225.appspot.com)
 
 ### General
